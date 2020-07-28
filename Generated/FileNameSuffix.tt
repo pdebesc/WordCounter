@@ -1,0 +1,29 @@
+﻿<#@ template hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+
+namespace WordCounter.Generated
+{
+  /// <summary>
+  /// Generated DO NOT EDIT. 
+  /// </summary>
+  public enum FileNameSuffix
+    {
+        <# 
+        var alphabet = Enumerable.Range('A', 26).Select(x => (char)x).ToArray();
+        foreach (char key in alphabet)
+        {
+            var keyName = char.ToUpper(key);
+            var keyValue = (int)key;
+        #>
+<#= keyName #> = <#= keyValue #>,
+        <# 
+            
+        }
+        #>
+    Exclude = 100
+    }
+}
